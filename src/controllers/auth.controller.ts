@@ -13,6 +13,17 @@ class AuthController {
       next(error);
     }
   };
+
+  public login = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const userData = req.body;
+      const loginUserData = await this.authService.loginUser(userData);
+      res.status(200).json({ data: loginUserData, message: "Kullanıcı Başarı ile giriş yaptı" });
+    } catch (error) {
+      next(error);
+    }
+  };
+
 }
 
 export default AuthController;
