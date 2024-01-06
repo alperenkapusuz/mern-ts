@@ -1,3 +1,5 @@
+import { Request } from 'express';
+
 export interface IUserRegisterReq {
     name: string;
     email: string;
@@ -19,4 +21,12 @@ export interface IUserLoginReq {
 
 export interface IUserLoginRes {
     token: string;
+}
+
+export interface RequestWithUser extends  Request {
+    userId: string;
+}
+
+export interface DataStoredInToken {
+    userId: number;
 }
