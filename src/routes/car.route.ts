@@ -12,7 +12,8 @@ class CarRoute implements Routes{
     }
 
     private initializeRoutes(){
-        this.router.post(`${this.path}/create/:userId`, this.carController.createCar)
+        this.router.post(`${this.path}/create`, this.carController.createCar)
+        this.router.get(`${this.path}/getAll`, this.carController.getAllCars)
     }
 }
 

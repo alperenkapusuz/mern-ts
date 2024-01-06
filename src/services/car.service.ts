@@ -22,6 +22,27 @@ class CarService {
         return response;
     }
 
+    
+    public async getAllCars(): Promise<Array<ICreateCarRes>> {
+        //TODO search parametresi eklenmeli
+        const cars: Array<ICarModel> = await Car.find().sort("-createdAt");
+        const response: Array<ICreateCarRes> = cars.map((car: ICarModel) => {
+            return {
+                id: car._id,
+                userId: car.userId.toString(),
+                name: car.name,
+                slug: car.slug,
+                visualRating: car.visualRating,
+                acceleration: car.acceleration,
+                topSpeed: car.topSpeed,
+                handling: car.handling,
+                sound: car.sound,
+                plate: car.plate,
+            }
+        });
+        return response;
+    }
+
 }
 
 export default CarService;

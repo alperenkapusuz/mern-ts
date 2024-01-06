@@ -15,6 +15,15 @@ class CarController {
             next(error);
         }
     }
+
+    public getAllCars = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const allCars = await this.CarService.getAllCars();
+            res.status(200).json({ data: allCars, message: 'all cars succesfully fetched' });
+        } catch (error) {
+            next(error);
+        }
+    }
 }
 
 export default CarController;
