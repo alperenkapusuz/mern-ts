@@ -8,7 +8,7 @@ class AuthController {
     try {
       const userData = req.body;
       const registerUserData = await this.authService.registerUser(userData);
-      res.status(201).json({ data: registerUserData, message: "signup" });
+      res.status(201).json({ data: registerUserData, message: "Kullanıcı Başarı ile kayıt edildi" });
     } catch (error) {
       next(error);
     }
